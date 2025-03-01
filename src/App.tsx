@@ -11,6 +11,7 @@ import Collection from "./pages/Collection";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
+import NewArrivals from "./pages/NewArrivals";
 import "./App.css";
 
 // Create a client
@@ -26,6 +27,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/collection" element={<Collection />} />
+            <Route path="/new-arrivals" element={<NewArrivals />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
