@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,18 @@ import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { ShoppingBag, ChevronLeft, Check } from "lucide-react";
+
+// Define the Product interface to include the optional description property
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  category: string;
+  colors: string[];
+  sizes: string[];
+  description?: string; // Make description optional with the ? operator
+}
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -281,7 +292,7 @@ const ProductDetail = () => {
 };
 
 // Sample data
-const products = [
+const products: Product[] = [
   {
     id: 1,
     name: "Silk Evening Gown",
@@ -290,6 +301,7 @@ const products = [
     category: "Evening",
     colors: ["#000000", "#a10000", "#1e40af"],
     sizes: ["XS", "S", "M", "L", "XL"],
+    description: "A stunning silk evening gown with a flattering silhouette. Made from premium silk that drapes beautifully, this gown features elegant detailing and is perfect for formal events and special occasions."
   },
   {
     id: 2,
@@ -299,6 +311,7 @@ const products = [
     category: "Summer",
     colors: ["#ffffff", "#ffb6c1", "#87ceeb"],
     sizes: ["XS", "S", "M", "L"],
+    description: "A lightweight and breezy summer dress adorned with a beautiful floral pattern. Made from breathable fabric that keeps you cool on warm days, this dress is perfect for summer outings and casual events."
   },
   {
     id: 3,
@@ -308,6 +321,7 @@ const products = [
     category: "Cocktail",
     colors: ["#000000"],
     sizes: ["S", "M", "L", "XL"],
+    description: "A timeless black cocktail dress that belongs in every wardrobe. This versatile piece features a classic design that flatters the figure and can be dressed up or down depending on the occasion."
   },
   {
     id: 4,
@@ -317,6 +331,7 @@ const products = [
     category: "Business",
     colors: ["#000000", "#808080", "#483d8b"],
     sizes: ["XS", "S", "M", "L", "XL"],
+    description: "A sophisticated pencil dress designed for the professional woman. With its tailored fit and polished look, this dress is perfect for the office or business meetings where you want to make a confident impression."
   },
   {
     id: 5,
@@ -326,6 +341,7 @@ const products = [
     category: "Casual",
     colors: ["#f5f5dc", "#d3d3d3", "#faebd7"],
     sizes: ["XS", "S", "M", "L", "XL"],
+    description: "A relaxed linen dress perfect for everyday wear. Made from high-quality linen that gets softer with each wash, this dress offers both comfort and style for casual outings and relaxed gatherings."
   },
   {
     id: 6,
@@ -335,6 +351,7 @@ const products = [
     category: "Casual",
     colors: ["#8b4513", "#deb887", "#a0522d"],
     sizes: ["S", "M", "L"],
+    description: "A free-spirited bohemian maxi dress with intricate patterns and flowing design. This dress embodies bohemian chic with its relaxed fit and artistic details, perfect for those who appreciate unique, expressive fashion."
   },
   {
     id: 7,
@@ -344,6 +361,7 @@ const products = [
     category: "Cocktail",
     colors: ["#c0c0c0", "#ffd700", "#000000"],
     sizes: ["XS", "S", "M", "L"],
+    description: "Make a statement with this eye-catching sequin party dress. Designed to stand out, this dress features shimmering sequins that catch the light with every movement, making it the perfect choice for parties and celebrations."
   },
   {
     id: 8,
@@ -353,6 +371,7 @@ const products = [
     category: "Summer",
     colors: ["#98fb98", "#afeeee", "#fafad2"],
     sizes: ["XS", "S", "M", "L", "XL"],
+    description: "A cool and comfortable sleeveless dress for hot summer days. Made from lightweight, breathable fabric, this dress keeps you feeling fresh while looking effortlessly stylish during the warmest months of the year."
   },
 ];
 
