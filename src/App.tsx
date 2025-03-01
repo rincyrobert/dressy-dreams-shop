@@ -11,7 +11,9 @@ import Collection from "./pages/Collection";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
+import "./App.css";
 
+// Create a client
 const queryClient = new QueryClient();
 
 const App = () => (
